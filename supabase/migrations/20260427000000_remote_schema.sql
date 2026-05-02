@@ -3752,23 +3752,19 @@ CREATE TRIGGER update_chat_detail_entries_updated_at_trigger BEFORE UPDATE ON pu
 
 CREATE TRIGGER on_dm_message_created AFTER INSERT ON public.direct_message_messages FOR EACH ROW EXECUTE FUNCTION public.notify_dm_user();
 
-CREATE TRIGGER send_on_push_dms AFTER INSERT ON public.direct_message_messages FOR EACH ROW EXECUTE FUNCTION supabase_functions.http_request('https://wspowzteoalbbvxjwrmr.supabase.co/functions/v1/send-push', 'POST', '{"Content-type":"application/json"}', '{}', '5000');
 
 CREATE TRIGGER on_reaction_added AFTER INSERT ON public.message_reactions FOR EACH ROW EXECUTE FUNCTION public.notify_reaction();
 
-CREATE TRIGGER send_push_on_message_reactions AFTER INSERT ON public.message_reactions FOR EACH ROW EXECUTE FUNCTION supabase_functions.http_request('https://wspowzteoalbbvxjwrmr.supabase.co/functions/v1/send-push', 'POST', '{"Content-type":"application/json"}', '{}', '5000');
 
 CREATE TRIGGER set_message_todos_updated_at BEFORE UPDATE ON public.message_todos FOR EACH ROW EXECUTE FUNCTION public.set_message_todos_updated_at();
 
 CREATE TRIGGER on_message_created AFTER INSERT ON public.messages FOR EACH ROW EXECUTE FUNCTION public.notify_channel_members();
 
-CREATE TRIGGER send_push_on_message AFTER INSERT ON public.messages FOR EACH ROW EXECUTE FUNCTION supabase_functions.http_request('https://wspowzteoalbbvxjwrmr.supabase.co/functions/v1/send-push', 'POST', '{"Content-type":"application/json"}', '{}', '5000');
 
 CREATE TRIGGER update_message_reply_count AFTER INSERT OR DELETE ON public.messages FOR EACH ROW EXECUTE FUNCTION public.update_reply_count();
 
 CREATE TRIGGER on_message_pinned AFTER INSERT ON public.pinned_messages FOR EACH ROW EXECUTE FUNCTION public.notify_pin();
 
-CREATE TRIGGER send_push_on_pinned_message AFTER INSERT ON public.pinned_messages FOR EACH ROW EXECUTE FUNCTION supabase_functions.http_request('https://wspowzteoalbbvxjwrmr.supabase.co/functions/v1/send-push', 'POST', '{"Content-type":"application/json"}', '{}', '5000');
 
 
   create policy "Allow uploads"

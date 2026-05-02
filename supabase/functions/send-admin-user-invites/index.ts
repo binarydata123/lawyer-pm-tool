@@ -2,18 +2,6 @@
 
 import { createClient } from "npm:@supabase/supabase-js@2";
 
-const escapeHtml = (str: any) => {
-  if (typeof str !== "string") return "";
-  const entities: Record<string, string> = {
-    "&": "&amp;",
-    "<": "&lt;",
-    ">": "&gt;",
-    '"': "&quot;",
-    "'": "&#39;",
-  };
-  return str.replace(/[&<>"']/g, (s) => entities[s]);
-};
-
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Headers":
@@ -88,7 +76,7 @@ Deno.serve(async (req) => {
 
   try {
     const supabaseUrl = Deno.env.get("APP_SUPABASE_URL");
-    const serviceRoleKey = Deno.env.get("SERVICE_ROLE_KEY");
+    const serviceRoleKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
     const resendApiKey = Deno.env.get("RESEND_API_KEY");
 
     if (!supabaseUrl || !serviceRoleKey || !resendApiKey) {
@@ -169,8 +157,7 @@ Deno.serve(async (req) => {
           resendApiKey,
           recipientEmail: invite.invited_email,
           inviterName,
-          workspaceName:
-            invite.workspace_name || `${inviterName}'s workspace`,
+          workspaceName: invite.workspace_name || `${inviterName}'s workspace`,
           inviteLink: buildInviteLink(
             appBaseUrl,
             invite.invite_token,
