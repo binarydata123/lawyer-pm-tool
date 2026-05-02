@@ -986,10 +986,10 @@ export function MainAppShell({
           <div className="hidden flex-1 items-center justify-center lg:flex">
             <div className="text-center">
               <div className="mb-6 inline-flex h-20 w-20 items-center justify-center rounded-3xl bg-primary-100 dark:bg-primary-900/40">
-                <span className="text-4xl font-bold text-primary-600">PM</span>
+                <span className="text-4xl font-bold text-primary-600">LPM</span>
               </div>
               <h2 className="mb-3 text-3xl font-bold text-slate-900 dark:text-white">
-                Welcome to PM-Tool
+                Welcome to LPM-Tool
               </h2>
               <p className="mb-8 max-w-md text-slate-600 dark:text-slate-300">
                 Select a channel or start a direct message to begin

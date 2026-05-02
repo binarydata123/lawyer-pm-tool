@@ -50,10 +50,10 @@ async function sendInviteEmail({
   channelName: string;
   inviteLink: string;
 }) {
-  const subject = `Join #${channelName} on PM-Tool`;
+  const subject = `Join #${channelName} on LPM-Tool`;
   const html = `
     <div style="font-family: Arial, sans-serif; line-height: 1.5; color: #0f172a;">
-      <p><strong>${escapeHtml(inviterName)}</strong> invited you to join <strong>#${escapeHtml(channelName)}</strong> on PM-Tool.</p>
+      <p><strong>${escapeHtml(inviterName)}</strong> invited you to join <strong>#${escapeHtml(channelName)}</strong> on LPM-Tool.</p>
       <p>
         <a href="${escapeHtml(inviteLink)}">Join Channel</a>
       </p>
@@ -68,7 +68,7 @@ async function sendInviteEmail({
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      from: "PM-Tool <noreply@pmtool.ai-developer.site>",
+      from: "LPM-Tool <noreply@pmtool.ai-developer.site>",
       to: recipientEmail,
       subject,
       html,
