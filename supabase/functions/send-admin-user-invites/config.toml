@@ -1,0 +1,2 @@
+[functions.send-admin-user-invites]
+verify_jwt = false

@@ -1,0 +1,9 @@
+node_modules/
+.env
+.codex
+dist/
+vite.config.ts
+tsconfig.tsbuildinfo
+.supabase/
+supabase/.temp/
+supabase/config.toml

@@ -1,0 +1,52 @@
+name: Deploy to production
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: npm install --legacy-peer-deps
+
+      - name: Build the project
+        run: npm run build
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: SSH to VPS and deploy
+        uses: appleboy/ssh-action@master
+        with:
+          host: 187.127.129.103
+          username: root
+          password: ${{ secrets.SSH_PASSWORD }}
+          script: |
+            [[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh
+            cd /var/www/binarydata
+            git add .
+            git commit -m "merge previous changes"
+            git pull origin main
+            npm install
+            npm run build 
+            if [ $? -eq 0 ]; then
+              pm2 reload binarydata
+            else
+              echo "Build failed"
+              exit 1
+            fi

@@ -1,0 +1,2 @@
+[functions.save-call-transcript]
+verify_jwt = true

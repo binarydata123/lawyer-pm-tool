@@ -1,0 +1,185 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    color-scheme: light;
+  }
+
+  html.dark {
+    color-scheme: dark;
+  }
+
+  * {
+    @apply antialiased;
+  }
+
+  body {
+    @apply bg-slate-50 text-slate-900 transition-colors duration-300;
+  }
+
+  html.dark body {
+    @apply bg-slate-950 text-slate-100;
+  }
+
+  html.dark input,
+  html.dark textarea,
+  html.dark select {
+    @apply border-slate-700 bg-slate-900 text-slate-100 placeholder:text-slate-400;
+  }
+
+  html.dark button,
+  html.dark input,
+  html.dark textarea,
+  html.dark select {
+    @apply transition-colors duration-300;
+  }
+
+  ::-webkit-scrollbar {
+    @apply w-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-slate-300 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-slate-400;
+  }
+
+  html.dark ::-webkit-scrollbar-thumb {
+    @apply bg-slate-700;
+  }
+
+  html.dark ::-webkit-scrollbar-thumb:hover {
+    @apply bg-slate-600;
+  }
+}
+
+@layer components {
+  html.dark [class~="bg-white"] {
+    @apply bg-slate-900 !important;
+  }
+
+  html.dark [class~="bg-white/80"] {
+    background-color: rgb(15 23 42 / 0.8) !important;
+  }
+
+  html.dark [class~="bg-slate-50"] {
+    @apply bg-slate-800 !important;
+  }
+
+  html.dark [class~="bg-slate-100"] {
+    @apply bg-slate-700 !important;
+  }
+
+  html.dark .bg-\[\#f2f3f5\] {
+    background-color: rgb(15 23 42 / 1) !important;
+  }
+
+  html.dark [class~="text-slate-900"] {
+    @apply text-white !important;
+  }
+
+  html.dark [class~="text-slate-700"] {
+    @apply text-slate-200 !important;
+  }
+
+  html.dark [class~="text-slate-600"] {
+    @apply text-slate-300 !important;
+  }
+
+  html.dark [class~="text-slate-500"],
+  html.dark [class~="text-slate-400"] {
+    @apply text-slate-400 !important;
+  }
+
+  html.dark .text-\[\#060607\] {
+    color: rgb(255 255 255 / 1) !important;
+  }
+
+  html.dark .text-\[\#4e5058\],
+  html.dark .text-\[\#6d6f78\] {
+    color: rgb(148 163 184 / 1) !important;
+  }
+
+  html.dark [class~="border-slate-100"] {
+    @apply border-slate-800 !important;
+  }
+
+  html.dark [class~="border-slate-200"] {
+    @apply border-slate-700 !important;
+  }
+
+  html.dark [class~="border-slate-300"] {
+    @apply border-slate-600 !important;
+  }
+
+  html.dark [class~="hover:bg-slate-50"]:hover {
+    @apply bg-slate-800 !important;
+  }
+
+  html.dark [class~="hover:bg-slate-50/50"]:hover {
+    background-color: rgb(30 41 59 / 0.8) !important;
+  }
+
+  html.dark [class~="hover:bg-slate-100"]:hover {
+    @apply bg-slate-700 !important;
+  }
+
+  html.dark .hover\:bg-\[\#e9eaed\]:hover,
+  html.dark .hover\:bg-\[\#dde1e9\]:hover {
+    background-color: rgb(51 65 85 / 1) !important;
+  }
+}
+
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+  }
+
+  @keyframes slideInFromRight {
+    from {
+      transform: translateX(100%);
+    }
+
+    to {
+      transform: translateX(0);
+    }
+  }
+}
+
+
+.text-emerald-300 {
+  color: rgb(0 157 95);
+}
+
+@media (max-width: 767px) {
+  h1 {
+    @apply text-sm !important;
+    /* pick a suitable base size */
+  }
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  a,
+  p,
+  ul,
+  li,
+  label,
+  button,
+  select,
+  div,
+  span {
+    @apply text-xs !important;
+    /* or md:text-sm depending on your design */
+  }
+}

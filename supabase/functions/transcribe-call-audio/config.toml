@@ -1,0 +1,2 @@
+[functions.transcribe-call-audio]
+verify_jwt = true
