@@ -153,7 +153,7 @@ function App() {
       <div className="min-h-screen flex items-center justify-center bg-slate-50 transition-colors dark:bg-slate-950">
         <div className="text-center">
           <div className="inline-flex items-center justify-center w-16 h-16 bg-primary-600 rounded-2xl mb-4 animate-pulse">
-            <span className="text-2xl font-bold text-white">PM</span>
+            <span className="text-2xl font-bold text-white">LPM</span>
           </div>
           <p className="text-slate-600 dark:text-slate-300">Loading...</p>
         </div>

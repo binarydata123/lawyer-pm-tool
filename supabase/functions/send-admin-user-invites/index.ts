@@ -38,7 +38,7 @@ async function sendInviteEmail({
   inviteLink: string;
   workspaceName: string;
 }) {
-  const subject = `Join ${workspaceName || `${inviterName}'s workspace`} on PM-Tool`;
+  const subject = `Join ${workspaceName || `${inviterName}'s workspace`} on LPM-Tool`;
   const html = `
     <div style="font-family: Arial, sans-serif; line-height: 1.5; color: #0f172a;">
       <p><strong>${escapeHtml(inviterName)}</strong> added you to <strong>${escapeHtml(workspaceName)}</strong>.</p>
@@ -57,7 +57,7 @@ async function sendInviteEmail({
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      from: "PM-Tool <noreply@pmtool.ai-developer.site>",
+      from: "LPM-Tool <noreply@pmtool.ai-developer.site>",
       to: recipientEmail,
       subject,
       html,

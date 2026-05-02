@@ -1,6 +1,6 @@
 {
-  "name": "PM-Tool",
-  "short_name": "PM-Tool",
+  "name": "LPM-Tool",
+  "short_name": "LPM-Tool",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",

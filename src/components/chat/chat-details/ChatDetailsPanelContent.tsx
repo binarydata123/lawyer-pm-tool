@@ -2150,7 +2150,7 @@ export function ChatDetailsPanel({
 
     return renderSectionEmptyState(
       LinkIcon,
-      "No shared URLs",
+      "No Legal Links",
       "Links shared in this conversation will appear here.",
     );
   };
@@ -2183,8 +2183,8 @@ export function ChatDetailsPanel({
 
     return renderSectionEmptyState(
       ImageIcon,
-      "No photos or media",
-      "Files and media shared in this conversation will appear here.",
+      "No Case Documents Found",
+      "Documents shared in this conversation will appear here.",
     );
   };
 
@@ -2326,7 +2326,7 @@ export function ChatDetailsPanel({
       onChange={(e) => setCredentials(e.target.value)}
       onBlur={handleCredentialsBlur}
       className="min-h-[890px] w-full resize-y rounded-xl border border-slate-200 px-4 py-3 text-sm text-slate-600 outline-none placeholder:text-slate-400 focus:border-primary-400 focus:ring-2 focus:ring-primary-100"
-      placeholder="Enter prescription details or dosage notes..."
+      placeholder="Enter Access Credentials details or dosage notes..."
     />
   );
 
@@ -2341,7 +2341,7 @@ export function ChatDetailsPanel({
         value={notes}
         onChange={(e) => setNotes(e.target.value)}
         className="min-h-[890px] w-full rounded-xl border border-slate-200 px-4 py-3 text-sm text-slate-600 outline-none placeholder:text-slate-400 focus:border-primary-400 focus:ring-2 focus:ring-primary-100"
-        placeholder="This is a personal note for this chat."
+        placeholder="This is a Lawyer Notes note for this chat."
       />
     </>
   );
@@ -2481,8 +2481,8 @@ export function ChatDetailsPanel({
 
     return renderSectionEmptyState(
       ListTodo,
-      "No tasks",
-      "Tasks created from messages in this conversation will appear here.",
+      "No Case tasks",
+      "Case Tasks created from messages in this conversation will appear here.",
     );
   };
 
@@ -2725,7 +2725,7 @@ export function ChatDetailsPanel({
           <div className="transform rounded-xl bg-white shadow-md dark:border dark:border-[#344155] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg">
             <SectionHeader
               icon={LinkIcon}
-              label="Shared urls"
+              label="Legal Links"
               onExpand={() => setExpandedDrawer("urls")}
               badge={sharedUrls.length}
             />
@@ -2735,7 +2735,7 @@ export function ChatDetailsPanel({
           <div className="transform rounded-xl bg-white shadow-md dark:border dark:border-[#344155] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg">
             <SectionHeader
               icon={ImageIcon}
-              label="Photos & Media"
+              label="Case Documents"
               onExpand={() => setExpandedDrawer("media")}
               badge={mediaItems.length}
             />
@@ -2765,7 +2765,7 @@ export function ChatDetailsPanel({
           <div className="transform rounded-xl bg-white shadow-md dark:border dark:border-[#344155] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg">
             <SectionHeader
               icon={ListTodo}
-              label="Task"
+              label="Case Task"
               onExpand={() => setExpandedDrawer("todo")}
               badge={todoCount}
             />
@@ -2776,7 +2776,7 @@ export function ChatDetailsPanel({
         <div className="mt-5 transform rounded-xl bg-white shadow-md dark:border dark:border-[#344155] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg">
           <SectionHeader
             icon={ClipboardList}
-            label="Prescription"
+            label="Access Credentials"
             onExpand={() => setExpandedDrawer("credentials")}
           />
         </div>
@@ -2785,7 +2785,7 @@ export function ChatDetailsPanel({
         <div className="mt-5 transform rounded-xl bg-white shadow-md dark:border dark:border-[#344155] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg">
           <SectionHeader
             icon={Mail}
-            label="Personal notes"
+            label="Lawyer Notes"
             onExpand={() => setExpandedDrawer("notes")}
           />
         </div>
@@ -2800,9 +2800,8 @@ export function ChatDetailsPanel({
                 </h3>
 
                 <p className="text-sm leading-relaxed text-slate-400">
-                  Get faster access to your workspace, receive instant updates,
-                  and stay connected with your team anytime, anywhere. Install
-                  the app for a smoother and better experience.
+                  Access case files, legal documents, and updates instantly.
+Stay connected with your legal team and manage cases efficiently anytime, anywhere.
                 </p>
 
                 <div className="pt-2">
@@ -2850,13 +2849,13 @@ export function ChatDetailsPanel({
       {renderDrawerShell({
         sectionKey: "urls",
         icon: LinkIcon,
-        title: "Shared urls",
+        title: "Legal Links",
         children: renderUrlRows(),
       })}
       {renderDrawerShell({
         sectionKey: "media",
         icon: ImageIcon,
-        title: "Photos & Media",
+        title: "Case Documents",
         children: renderMediaRows(),
       })}
       {renderDrawerShell({
@@ -2874,13 +2873,13 @@ export function ChatDetailsPanel({
       {renderDrawerShell({
         sectionKey: "credentials",
         icon: ClipboardList,
-        title: "Prescription",
+        title: "Access Credentials",
         children: renderCredentialsEditor(),
       })}
       {renderDrawerShell({
         sectionKey: "notes",
         icon: Mail,
-        title: "Personal notes",
+        title: "Lawyer Notes",
         headerExtra: detailsSaveMessage ? (
           <span className="ml-1 text-xs font-medium text-slate-500">
             {detailsSaveMessage}
@@ -2891,7 +2890,7 @@ export function ChatDetailsPanel({
       {renderDrawerShell({
         sectionKey: "todo",
         icon: ListTodo,
-        title: "Task",
+        title: "Case Task",
         children: renderTodoRows(true),
       })}
     </>

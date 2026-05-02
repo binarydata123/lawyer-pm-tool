@@ -84,17 +84,20 @@ function renderCodeBlock({
   language?: string;
 }) {
   return (
-    <div key={`${keyPrefix}-block`} className="group relative my-1 overflow-visible">
+    <div
+      key={`${keyPrefix}-block`}
+      className="group relative my-1 min-w-0 max-w-full overflow-visible"
+    >
       <div className="absolute -top-2 right-2 z-10 opacity-0 transition-opacity group-hover:opacity-100">
         <CopyCodeButton text={code} />
       </div>
-      <div className="overflow-hidden rounded-lg bg-slate-900">
+      <div className="min-w-0 max-w-full overflow-hidden rounded-lg bg-slate-900">
         {language ? (
           <div className="bg-slate-800 px-3 py-1 text-[10px] font-medium uppercase tracking-[0.18em] text-slate-400">
             {language}
           </div>
         ) : null}
-        <pre className="overflow-x-auto bg-transparent px-3 py-2 font-mono text-[13px] leading-relaxed text-slate-100">
+        <pre className="max-w-full overflow-x-hidden whitespace-pre-wrap bg-transparent px-3 py-2 font-mono text-[13px] leading-relaxed text-slate-100 [overflow-wrap:anywhere] [word-break:break-word]">
           <code>{code}</code>
         </pre>
       </div>

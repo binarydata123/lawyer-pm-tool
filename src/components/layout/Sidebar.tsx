@@ -1769,7 +1769,7 @@ export function Sidebar({
                 Chats
               </h1>
               <p className="truncate text-xs text-slate-500 dark:text-slate-400">
-                {activeWorkspace?.name || "PM-Tool"}
+                {activeWorkspace?.name || "LPM-Tool"}
               </p>
             </div>
             <div className="flex items-center gap-1">
@@ -2035,7 +2035,7 @@ export function Sidebar({
             {/* App Icon - Slightly larger on mobile rail for better touch targets */}
             <div className="w-10 h-10 lg:w-7 lg:h-7 rounded-xl lg:rounded-lg flex items-center justify-center flex-shrink-0 shadow-sm bg-[#3178c6]">
               <span className="text-white text-[14px] lg:text-[11px] font-black tracking-tight leading-none">
-                PM
+                LPM
               </span>
             </div>
             {/* Label hidden on mobile */}
@@ -2044,7 +2044,7 @@ export function Sidebar({
                 mobileListMode ? "block" : "hidden lg:block"
               } text-[15px] font-bold text-[#060607] truncate dark:text-white`}
             >
-              {activeWorkspace?.name || "PM-Tool"}
+              {activeWorkspace?.name || "LPM-Tool"}
             </span>
           </div>
           {workspaces.length > 1 ? (

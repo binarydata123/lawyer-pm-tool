@@ -723,16 +723,31 @@ export function MessageList({
 
       if (!matchesConversation) return;
 
-      const nextMessage = detail as Message;
-      setMessages((current) => {
-        if (current.some((message) => message.id === nextMessage.id)) {
-          return current;
-        }
+      void fetchMessageById(detail.id).then((hydratedMessage) => {
+        const nextMessage = hydratedMessage ?? (detail as Message);
+        if (nextMessage.thread_id) return;
 
-        return [...current, nextMessage].sort(
-          (a, b) =>
-            new Date(a.created_at).getTime() - new Date(b.created_at).getTime(),
-        );
+        setMessages((current) => {
+          const existingIndex = current.findIndex(
+            (message) => message.id === nextMessage.id,
+          );
+
+          if (existingIndex >= 0) {
+            const nextMessages = [...current];
+            nextMessages[existingIndex] = nextMessage;
+            return nextMessages.sort(
+              (a, b) =>
+                new Date(a.created_at).getTime() -
+                new Date(b.created_at).getTime(),
+            );
+          }
+
+          return [...current, nextMessage].sort(
+            (a, b) =>
+              new Date(a.created_at).getTime() -
+              new Date(b.created_at).getTime(),
+          );
+        });
       });
     };
 
@@ -1375,7 +1390,7 @@ export function MessageList({
       .range(offset, offset + limit - 1);
 
     if (channelId) {
-      query = query.eq("channel_id", channelId).is("parent_id", null);
+      query = query.eq("channel_id", channelId);
     } else if (broadcastId) {
       query = query.eq("broadcast_id", broadcastId);
     } else if (dmId) {
@@ -2772,8 +2787,8 @@ export function MessageList({
                             <Tooltip
                               content={
                                 todoMessageIds.has(message.id)
-                                  ? "Already in Task"
-                                  : "Add to Task"
+                                  ? "Already in Case Task"
+                                  : "Add to Case Task"
                               }
                             >
                               <button
