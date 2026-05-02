@@ -45,6 +45,7 @@ export function MessageInput({
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const isSendingRef = useRef(false);
+  const shouldRestoreFocusAfterSendRef = useRef(false);
   const { user } = useAuth();
   const { activeWorkspaceId } = useWorkspaces();
   const { clearTypingIndicator, handleTyping } = useTypingIndicator({
@@ -130,6 +131,19 @@ export function MessageInput({
 
     focusInput();
   }, [focusInput, replyTarget]);
+
+  useEffect(() => {
+    if (
+      !shouldRestoreFocusAfterSendRef.current ||
+      isSending ||
+      uploadProgress
+    ) {
+      return;
+    }
+
+    shouldRestoreFocusAfterSendRef.current = false;
+    focusInput();
+  }, [focusInput, isSending, uploadProgress]);
 
   const handleFileInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = Array.from(e.target.files ?? []);
@@ -276,8 +290,8 @@ export function MessageInput({
       setUploadProgress(null);
     } finally {
       isSendingRef.current = false;
+      shouldRestoreFocusAfterSendRef.current = true;
       setIsSending(false);
-      focusInput();
     }
   };
 

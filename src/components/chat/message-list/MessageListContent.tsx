@@ -2787,8 +2787,8 @@ export function MessageList({
                             <Tooltip
                               content={
                                 todoMessageIds.has(message.id)
-                                  ? "Already in Task"
-                                  : "Add to Task"
+                                  ? "Already in Case Task"
+                                  : "Add to Case Task"
                               }
                             >
                               <button

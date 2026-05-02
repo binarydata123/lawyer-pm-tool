@@ -67,10 +67,10 @@ export function AuthForm() {
       <div className="w-full max-w-md p-8 bg-white rounded-2xl shadow-xl border border-slate-200">
         <div className="text-center mb-8">
           <div className="inline-flex items-center justify-center w-16 h-16 bg-primary-600 rounded-2xl mb-4">
-            <span className="text-2xl font-bold text-white">PM</span>
+            <span className="text-2xl font-bold text-white">LPM</span>
           </div>
-          <h1 className="text-3xl font-bold text-slate-900 mb-2">PM-Tool</h1>
-          <p className="text-slate-600">Enterprise Team Collaboration</p>
+          <h1 className="text-3xl font-bold text-slate-900 mb-2">LPM-Tool</h1>
+          <p className="text-slate-600">Legal Case Management</p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-5">
@@ -83,7 +83,7 @@ export function AuthForm() {
               </p>
               <p className="text-sm text-slate-600 mt-1">
                 {storedAdminInvite
-                  ? "Create an account with the invited email to join your admin's PM-Tool workspace."
+                  ? "Create an account with the invited email to join your admin's LPM-Tool workspace."
                   : "Create an account or sign in with the invited email to receive a Join link in your personal chat."}
               </p>
             </div>
