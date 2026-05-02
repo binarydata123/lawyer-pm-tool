@@ -992,8 +992,7 @@ export function MainAppShell({
                 Welcome to LPM-Tool
               </h2>
               <p className="mb-8 max-w-md text-slate-600 dark:text-slate-300">
-                Select a channel or start a direct message to begin
-                collaborating with your team.
+                 Manage cases, connect with clients, and collaborate securely with your legal team.
               </p>
               <div className="flex justify-center gap-3">
                 {canManageWorkspace && (

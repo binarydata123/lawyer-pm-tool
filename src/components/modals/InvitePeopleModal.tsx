@@ -134,7 +134,7 @@ export function InvitePeopleModal({ isOpen, onClose }: InvitePeopleModalProps) {
     }
 
     if (!canManageWorkspace) {
-      setError("Only workspace admins can invite people.");
+      setError("Only workspace admins can invite clients & Team.");
       return;
     }
 
@@ -321,7 +321,7 @@ export function InvitePeopleModal({ isOpen, onClose }: InvitePeopleModalProps) {
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 animate-fade-in">
       <div className="mx-4 w-full max-w-lg animate-slide-in rounded-2xl bg-white shadow-2xl">
         <div className="flex items-center justify-between border-b border-slate-200 p-3 lg:p-6">
-          <h2 className="text-xl font-bold text-slate-900">Invite People</h2>
+          <h2 className="text-xl font-bold text-slate-900">Invite Clients & Team</h2>
           <button
             onClick={handleClose}
             className="rounded-lg p-2 transition-colors hover:bg-slate-100"
