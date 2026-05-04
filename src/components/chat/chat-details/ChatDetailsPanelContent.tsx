@@ -2150,7 +2150,7 @@ export function ChatDetailsPanel({
 
     return renderSectionEmptyState(
       LinkIcon,
-      "No Legal Links",
+      "No Links",
       "Links shared in this conversation will appear here.",
     );
   };
@@ -2183,7 +2183,7 @@ export function ChatDetailsPanel({
 
     return renderSectionEmptyState(
       ImageIcon,
-      "No Case Documents Found",
+      "No Documents Found",
       "Documents shared in this conversation will appear here.",
     );
   };
@@ -2341,7 +2341,7 @@ export function ChatDetailsPanel({
         value={notes}
         onChange={(e) => setNotes(e.target.value)}
         className="min-h-[890px] w-full rounded-xl border border-slate-200 px-4 py-3 text-sm text-slate-600 outline-none placeholder:text-slate-400 focus:border-primary-400 focus:ring-2 focus:ring-primary-100"
-        placeholder="This is a Lawyer Notes note for this chat."
+        placeholder="This is a Notes note for this chat."
       />
     </>
   );
@@ -2481,8 +2481,8 @@ export function ChatDetailsPanel({
 
     return renderSectionEmptyState(
       ListTodo,
-      "No Case tasks",
-      "Case Tasks created from messages in this conversation will appear here.",
+      "No tasks",
+      "Tasks created from messages in this conversation will appear here.",
     );
   };
 
@@ -2725,7 +2725,7 @@ export function ChatDetailsPanel({
           <div className="transform rounded-xl bg-white shadow-md dark:border dark:border-[#344155] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg">
             <SectionHeader
               icon={LinkIcon}
-              label="Legal Links"
+              label="Links"
               onExpand={() => setExpandedDrawer("urls")}
               badge={sharedUrls.length}
             />
@@ -2735,7 +2735,7 @@ export function ChatDetailsPanel({
           <div className="transform rounded-xl bg-white shadow-md dark:border dark:border-[#344155] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg">
             <SectionHeader
               icon={ImageIcon}
-              label="Case Documents"
+              label="Documents"
               onExpand={() => setExpandedDrawer("media")}
               badge={mediaItems.length}
             />
@@ -2765,7 +2765,7 @@ export function ChatDetailsPanel({
           <div className="transform rounded-xl bg-white shadow-md dark:border dark:border-[#344155] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg">
             <SectionHeader
               icon={ListTodo}
-              label="Case Task"
+              label="Task"
               onExpand={() => setExpandedDrawer("todo")}
               badge={todoCount}
             />
@@ -2785,7 +2785,7 @@ export function ChatDetailsPanel({
         <div className="mt-5 transform rounded-xl bg-white shadow-md dark:border dark:border-[#344155] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg">
           <SectionHeader
             icon={Mail}
-            label="Lawyer Notes"
+            label="Notes"
             onExpand={() => setExpandedDrawer("notes")}
           />
         </div>
@@ -2800,8 +2800,8 @@ export function ChatDetailsPanel({
                 </h3>
 
                 <p className="text-sm leading-relaxed text-slate-400">
-                  Access case files, legal documents, and updates instantly.
-Stay connected with your legal team and manage cases efficiently anytime, anywhere.
+                  Access case files, documents, and updates instantly.
+Stay connected with your team and manage cases efficiently anytime, anywhere.
                 </p>
 
                 <div className="pt-2">
@@ -2849,13 +2849,13 @@ Stay connected with your legal team and manage cases efficiently anytime, anywhe
       {renderDrawerShell({
         sectionKey: "urls",
         icon: LinkIcon,
-        title: "Legal Links",
+        title: "Links",
         children: renderUrlRows(),
       })}
       {renderDrawerShell({
         sectionKey: "media",
         icon: ImageIcon,
-        title: "Case Documents",
+        title: "Documents",
         children: renderMediaRows(),
       })}
       {renderDrawerShell({
@@ -2879,7 +2879,7 @@ Stay connected with your legal team and manage cases efficiently anytime, anywhe
       {renderDrawerShell({
         sectionKey: "notes",
         icon: Mail,
-        title: "Lawyer Notes",
+        title: "Notes",
         headerExtra: detailsSaveMessage ? (
           <span className="ml-1 text-xs font-medium text-slate-500">
             {detailsSaveMessage}
@@ -2890,7 +2890,7 @@ Stay connected with your legal team and manage cases efficiently anytime, anywhe
       {renderDrawerShell({
         sectionKey: "todo",
         icon: ListTodo,
-        title: "Case Task",
+        title: "Task",
         children: renderTodoRows(true),
       })}
     </>
