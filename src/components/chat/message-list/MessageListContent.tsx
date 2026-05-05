@@ -3131,6 +3131,7 @@ export function MessageList({
                                   renderAttachment(message)}{" "}
                                 {/* This needs to be updated for broadcast too */}
                                 <div
+                                  data-selectable-message-text
                                   className={`min-w-0 select-none whitespace-pre-wrap text-[14px] leading-[1.4] [overflow-wrap:anywhere] [word-break:break-word] sm:select-text ${message.is_deleted ? "italic" : ""}`}
                                 >
                                   {renderMentions(
