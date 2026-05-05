@@ -67,7 +67,7 @@ export function MessageInput({
 
   const shouldRestoreComposerFocus = useCallback(() => {
     if (typeof document === "undefined") return false;
-
+    if (window.getSelection()?.toString()) return false;
     const activeElement = document.activeElement;
     if (!activeElement || activeElement === document.body) return true;
     if (activeElement === inputRef.current) return false;
